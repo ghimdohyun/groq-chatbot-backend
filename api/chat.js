@@ -1,11 +1,4 @@
 export default async function handler(req, res) {
-  return res.status(200).json({
-    ok: true,
-    method: req.method,
-    hasKey: !!process.env.GROQ_API_KEY,
-  });
-}
-export default async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
