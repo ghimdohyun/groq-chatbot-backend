@@ -1,10 +1,5 @@
 {
   "name": "groq-chatbot-backend",
   "version": "1.0.0",
-  "description": "Groq AI Chatbot Backend",
-  "main": "api/chat.js",
-  "scripts": {
-    "start": "node api/chat.js"
-  },
-  "dependencies": {}
+  "type": "module"
 }
