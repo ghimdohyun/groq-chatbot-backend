@@ -16,8 +16,17 @@ export default async function handler(req, res) {
   const { message } = req.body;
   const groqApiKey = process.env.GROQ_API_KEY;
 
+  // 🔥 DEBUG: 환경변수 확인
+  console.log('API Key exists:', !!groqApiKey);
+  console.log('API Key starts with gsk_:', groqApiKey?.startsWith('gsk_'));
+  console.log('API Key length:', groqApiKey?.length);
+
   if (!message || !groqApiKey) {
-    return res.status(400).json({ error: 'Missing message or API key' });
+    return res.status(400).json({ 
+      error: 'Missing message or API key',
+      hasKey: !!groqApiKey,
+      hasMessage: !!message
+    });
   }
 
   try {
@@ -39,7 +48,10 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       console.error('Groq API error:', data);
-      return res.status(response.status).json({ error: data.error?.message || 'Groq API error' });
+      return res.status(response.status).json({ 
+        error: data.error?.message || 'Groq API error',
+        status: response.status
+      });
     }
 
     const reply = data.choices[0]?.message?.content || 'No response received';
