@@ -1,5 +1,13 @@
 {
   "name": "groq-chatbot-backend",
   "version": "1.0.0",
-  "type": "module"
+  "description": "Groq AI 상담 챗봇 백엔드 서버",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "latest"
+  }
 }
